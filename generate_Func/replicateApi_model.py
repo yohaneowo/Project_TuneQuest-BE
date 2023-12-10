@@ -1,4 +1,3 @@
-from audiocraft.models import MusicGen
 from audiocraft.data.audio import audio_write
 import torch
 print(torch.__version__)

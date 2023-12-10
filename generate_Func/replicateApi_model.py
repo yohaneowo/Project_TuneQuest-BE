@@ -1,4 +1,3 @@
-import torchaudio
 from audiocraft.models import MusicGen
 from audiocraft.data.audio import audio_write
 import torch

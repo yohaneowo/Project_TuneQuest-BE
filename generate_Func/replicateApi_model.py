@@ -1,5 +1,4 @@
 from audiocraft.data.audio import audio_write
-
 descriptions = ['happy rock in modern style with electric guitar and drums']
 
 melody, sr = torchaudio.load('./bach.mp3')

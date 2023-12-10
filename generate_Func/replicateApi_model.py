@@ -1,6 +1,4 @@
 from audiocraft.data.audio import audio_write
-model = MusicGen.get_pretrained('facebook/musicgen-stereo-melody-large')
-model.set_generation_params(duration=30)  # generate 8 seconds.
 
 descriptions = ['happy rock in modern style with electric guitar and drums']
 

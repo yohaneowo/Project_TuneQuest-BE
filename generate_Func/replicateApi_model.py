@@ -1,5 +1,4 @@
 from audiocraft.data.audio import audio_write
-print(torch.version.cuda)
 model = MusicGen.get_pretrained('facebook/musicgen-stereo-melody-large')
 model.set_generation_params(duration=30)  # generate 8 seconds.
 

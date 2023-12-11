@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c8990b1-68dc-4b72-95e6-9f00d3f3a34d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/generate_Func/replicateApi_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/generate_Func/replicateApi_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generate_music.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/local_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generate_Func/local_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/generate_Func/replicateApi_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +60,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.general",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -60,8 +68,11 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Yohane\PycharmProjects\Project_TuneQuest-BE" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Yohane\PycharmProjects\Project_TuneQuest-BE" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.melody">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Project_TuneQuest-BE" />
       <option name="ENV_FILES" value="" />
@@ -148,8 +159,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.melody" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.melody" />
         <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
@@ -169,7 +180,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1702189630185</updated>
-      <workItem from="1702189735611" duration="18351000" />
+      <workItem from="1702189735611" duration="26551000" />
     </task>
     <servers />
   </component>
@@ -178,7 +189,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Project_TuneQuest_BE$test.coverage" NAME="test Coverage Results" MODIFIED="1702194024210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Project_TuneQuest_BE$main.coverage" NAME="main Coverage Results" MODIFIED="1702215931031" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Project_TuneQuest_BE$main.coverage" NAME="main Coverage Results" MODIFIED="1702298601743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Project_TuneQuest_BE$melody.coverage" NAME="melody Coverage Results" MODIFIED="1702216059726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

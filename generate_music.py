@@ -1,5 +1,9 @@
 import replicate
-import celery as celery
+import celery_app as celery
+import torchaudio
+from audiocraft.models import MusicGen
+from audiocraft.data.audio import audio_write
+import torch
 class MusicGenerationInput:
     def __init__(self, top_k: int, top_p: int, prompt: str, duration: int, temperature: int, continuation: bool, model_version: str, output_format: str, continuation_start: int, multi_band_diffusion: bool, normalization_strategy: str, classifier_free_guidance: int):
         self.top_k = top_k
@@ -38,4 +42,26 @@ async def generate_music_by_replicate (self: MusicGenerationInput):
     print(output)
 
 async def generate_music_by_local():
-    pass
+    import asyncio
+
+    result = await asyncio.sleep(20, "Hello after 1 minuite")
+    print(result)
+    # model = MusicGen.get_pretrained('facebook/musicgen-stereo-melody-large')
+    # model.set_generation_params(
+    #     top_k=self.top_k,
+    #     top_p=self.top_p,
+    #     temperature=self.temperature,
+    #     duration=self.duration,
+    #     cfg_coef=self.classifier_free_guidance,
+    # )  # generate 8 seconds.
+    #
+    # descriptions = ['happy rock in modern style with electric guitar and drums']
+    #
+    # melody, sr = torchaudio.load('./bach.mp3')
+    # # generates using the melody from the given audio and the provided descriptions.
+    # wav = model.generate_with_chroma(descriptions, melody[None].expand(1, -1, -1), sr, True)
+    #
+    # for idx, one_wav in enumerate(wav):
+    #     # Will save under {idx}.wav, with loudness normalization at -14 db LUFS.
+    #     audio_write(f'{idx}', one_wav.cpu(), model.sample_rate, strategy="loudness")
+    #

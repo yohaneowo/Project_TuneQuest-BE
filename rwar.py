@@ -1,5 +1,5 @@
 from celery_app.musicgen_tasks import add
 if __name__ == '__main__':
     result = add.delay(4, 4)
-
-    print(result)
+    x = result.get(timeout=1)
+    print(x)

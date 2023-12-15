@@ -1,6 +1,6 @@
-from ..celery_app import app
+from celery_app.celery_app import celery_app
 
-@app.task
+@celery_app.task()
 def add(x, y):
     return x + y
 

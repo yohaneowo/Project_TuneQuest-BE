@@ -1,3 +1,3 @@
-import celery_app.musicgen_tasks.generate_music_by_replicate_api
+import celery_app.musicgen_tasks.generate_music
 
-add = generate_music_by_local.add
+generate_music = generate_music.generate_music

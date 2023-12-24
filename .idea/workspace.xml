@@ -5,20 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c8990b1-68dc-4b72-95e6-9f00d3f3a34d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ai_generation_core/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ai_generation_core/audiogen/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ai_generation_core/musicgen/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ai_generation_core/musicgen/musicgen.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/celery_app/common/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/celery_app/common/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/celery_app/celery_app_2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/celery_app/celery_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/celery_app/celery_app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/celery_app/celery_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/celery_app/celery_app_1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/celery_app/musicgen_tasks/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/celery_app/musicgen_tasks/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/celery_app/musicgen_tasks/generate_music.py" beforeDir="false" afterPath="$PROJECT_DIR$/celery_app/musicgen_tasks/generate_music.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/celery_app/musicgen_tasks/generate_music_by_local.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/celery_app/musicgen_tasks/generate_music_by_replicate_api.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/generate_music.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/local_model.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +114,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="celery_app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="celery_app_1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Project_TuneQuest-BE" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -137,7 +128,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Yohane\PycharmProjects\Project_TuneQuest-BE\celery_app\celery_app.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Yohane\PycharmProjects\Project_TuneQuest-BE\celery_app\celery_app_1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -259,7 +250,7 @@
         <item itemvalue="Python.melody" />
         <item itemvalue="Python.runmain" />
         <item itemvalue="Python.tasktest" />
-        <item itemvalue="Python.celery_app" />
+        <item itemvalue="Python.celery_app_1" />
       </list>
     </recent_temporary>
   </component>
@@ -284,7 +275,7 @@
       <workItem from="1702646118000" duration="4901000" />
       <workItem from="1702675249064" duration="5894000" />
       <workItem from="1703177059088" duration="36445000" />
-      <workItem from="1703393900176" duration="1361000" />
+      <workItem from="1703393900176" duration="2490000" />
     </task>
     <servers />
   </component>

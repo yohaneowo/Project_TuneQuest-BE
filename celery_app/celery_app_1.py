@@ -12,7 +12,7 @@ print(docker_host)
 broker_url = f'amqp://{docker_host}:{int(rabbitmq_port)}'
 backend_url = f'redis://{docker_host}:{int(redis_port)}'
 
-celery_app = Celery(__name__,
+celery_app_1 = Celery(__name__,
                     broker=broker_url,
                     backend=backend_url,
                     include=['celery_app.musicgen_tasks.generate_music']

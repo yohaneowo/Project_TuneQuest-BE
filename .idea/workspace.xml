@@ -5,14 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c8990b1-68dc-4b72-95e6-9f00d3f3a34d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/celery_app/musicgen_tasks/celeryconfig.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ai_generation_core/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ai_generation_core/audiogen/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ai_generation_core/musicgen/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ai_generation_core/musicgen/musicgen.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/celery_app/common/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/celery_app/common/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/celery_app/celery_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/celery_app/celery_app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/celery_app/musicgen_tasks/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/celery_app/musicgen_tasks/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/celery_app/musicgen_tasks/generate_music.py" beforeDir="false" afterPath="$PROJECT_DIR$/celery_app/musicgen_tasks/generate_music.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/celery_app/musicgen_tasks/generate_music_by_local.py" beforeDir="false" afterPath="$PROJECT_DIR$/celery_app/musicgen_tasks/generate_music_by_local.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/local_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/melody.py" beforeDir="false" afterPath="$PROJECT_DIR$/melody.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rwar.py" beforeDir="false" afterPath="$PROJECT_DIR$/rwar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/celery_app/musicgen_tasks/generate_music_by_local.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/celery_app/musicgen_tasks/generate_music_by_replicate_api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/generate_music.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/local_model.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,25 +76,27 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Yohane/Documents/GitHub&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Yohane/PycharmProjects/Project_TuneQuest-BE/ai_generation_core/musicgen&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Yohane\PycharmProjects\Project_TuneQuest-BE\ai_generation_core\musicgen" />
       <recent name="C:\Users\Yohane\PycharmProjects\Project_TuneQuest-BE" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Yohane\PycharmProjects\Project_TuneQuest-BE\celery_app" />
+      <recent name="C:\Users\Yohane\PycharmProjects\Project_TuneQuest-BE\celery_app\musicgen_tasks" />
+      <recent name="C:\Users\Yohane\PycharmProjects\Project_TuneQuest-BE\ai_generation_core\musicgen" />
       <recent name="C:\Users\Yohane\PycharmProjects\Project_TuneQuest-BE" />
+      <recent name="C:\Users\Yohane\PycharmProjects\Project_TuneQuest-BE\celery_app" />
       <recent name="C:\Users\Yohane\PycharmProjects\Project_TuneQuest-BE\celery" />
-      <recent name="C:\Users\Yohane\PycharmProjects\Project_TuneQuest-BE\celery\celery_task" />
     </key>
   </component>
   <component name="RunManager" selected="Python.rwar">
@@ -258,7 +266,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-67fca87a943a-c986f194a52a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.11799.259" />
+        <option value="bundled-python-sdk-50da183f06c8-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13135.95" />
       </set>
     </attachedChunks>
   </component>
@@ -275,7 +283,8 @@
       <workItem from="1702644130188" duration="1110000" />
       <workItem from="1702646118000" duration="4901000" />
       <workItem from="1702675249064" duration="5894000" />
-      <workItem from="1703177059088" duration="31062000" />
+      <workItem from="1703177059088" duration="36445000" />
+      <workItem from="1703393900176" duration="1361000" />
     </task>
     <servers />
   </component>

@@ -4,6 +4,7 @@ import torchaudio
 from audiocraft.models import MusicGen
 from audiocraft.data.audio import audio_write
 import torch
+import local_model
 class MusicGenerationInput:
     def __init__(self, top_k: int, top_p: int, prompt: str, duration: int, temperature: int, continuation: bool, model_version: str, output_format: str, continuation_start: int, multi_band_diffusion: bool, normalization_strategy: str, classifier_free_guidance: int):
         self.top_k = top_k
@@ -43,8 +44,8 @@ async def generate_music_by_replicate (self: MusicGenerationInput):
 
 async def generate_music_by_local():
     import asyncio
-
-    result = await asyncio.sleep(20, "Hello after 1 minuite")
+    result = await local_model.generate_musicByLocal()
+    # result = await asyncio.sleep(20, "Hello after 1 minuite")
     print(result)
     # model = MusicGen.get_pretrained('facebook/musicgen-stereo-melody-large')
     # model.set_generation_params(

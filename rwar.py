@@ -1,19 +1,29 @@
 from celery_app.musicgen_tasks import add
-from test import celery_app
-
+from celery.result import AsyncResult
 if __name__ == '__main__':
-    result = add.delay(4, 4)
-    print(f'Task ID: {result.id}')
-    result.ready()
-    try:
-        # This will block until the result is ready or until the timeout is reached
-        result_value = result.get(timeout=10)
+    result = add.delay()
+    result2 = add.delay()
 
-        print(f'Result: {result_value}')
+    # 使用 AsyncResult 等待任務完成
+    result_instance = AsyncResult(result.id)
+    result_instance2 = AsyncResult(result2.id)
+
+    try:
+        # 等待並取得結果
+        result_value = result_instance.get()
+        result_value2 = result_instance2.get()
+        print(f'Result 1: {result_value}')
+        print(f'Result 2: {result_value2}')
+
     except Exception as e:
         print(f'Error getting result: {e}')
 
-    if result.ready():
-        print('Task is ready')
+    if result_instance.ready():
+        print('Task 1 is ready')
     else:
-        print('Task is not ready yet')
+        print('Task 1 is not ready yet')
+
+    if result_instance2.ready():
+        print('Task 2 is ready')
+    else:
+        print('Task 2 is not ready yet')

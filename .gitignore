@@ -3,3 +3,5 @@
 .flaskenv*
 !.env.project
 !.env.vault
+.temp_outputFolder/
+.idea/

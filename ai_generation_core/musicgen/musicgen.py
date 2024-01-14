@@ -37,10 +37,10 @@ class Musicgen:
                 "prompt": self.prompt,
                 "duration": self.duration,
                 "temperature": self.temperature,
-                "continuation": self.continuation,
+                # "continuation": self.continuation,
                 "model_version": self.model_version,
                 "output_format": self.output_format,
-                "continuation_start": self.continuation_start,
+                # "continuation_start": self.continuation_start,
                 "multi_band_diffusion": self.multi_band_diffusion,
                 "normalization_strategy": self.normalization_strategy,
                 "classifier_free_guidance": self.classifier_free_guidance
@@ -64,7 +64,6 @@ class Musicgen:
         melody, sr = torchaudio.load(self.audiofile_path)
         # generates using the melody from the given audio and the provided descriptions.
         wav = model.generate_with_chroma(descriptions, melody[None].expand(1, -1, -1), sr, True)
-
         # Will save under {idx}.wav, with loudness normalization at -14 db LUFS.
         audio_write(f'{self.mission_id}', wav.cpu(), model.sample_rate, strategy="loudness")
 

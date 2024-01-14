@@ -2,15 +2,21 @@ import os
 from fastapi import FastAPI
 from dotenv_vault import load_dotenv
 import uvicorn
-from generate_music import *
 
+from typing import Annotated
+
+from fastapi import Depends, FastAPI
+
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
 load_dotenv()
 app = FastAPI()
 fastapi_port = os.getenv("FASTAPI_PORT")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 @app.get("/")
-async def root():
-    return {"message": "Hello World"}
+async def root(token: Annotated[str, Depends(oauth2_scheme)]):
+    # return {"message": "Hello World"}
+    return {"token": token}
 
 
 @app.get("/hello")

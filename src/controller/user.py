@@ -1,5 +1,5 @@
 import sqlite3
-conn = sqlite3.connect('../temp_sqlite/TuneQuest.db')
+conn = sqlite3.connect('../../temp_sqlite/TuneQuest.db')
 def get_user(db, username:str):
     c = conn.cursor()
     c.execute("SELECT * FROM user WHERE username=?", (username,))
@@ -9,6 +9,7 @@ def get_user(db, username:str):
         return user_data
     else:
         return None
-
+def create_user
 if __name__ == "__main__":
     print(get_user(conn, 'test'))
+    

@@ -1,0 +1,41 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// generator
+generator client {
+  provider             = "prisma-client-py"
+  recursive_type_depth = 5
+  interface           = "sync"
+}
+
+// data models
+model Post {
+  id        Int     @id @default(autoincrement())
+  title     String
+  content   String?
+  published Boolean @default(false)
+
+}
+
+model User {
+  user_id            Int       @id @default(autoincrement())
+  username           String
+  display_name       String?
+  gender             String?
+  profilebanner_url  String?
+  created_at         DateTime
+  updated_at         DateTime
+  email              String?
+  region             String?
+  hashed_password    String
+  profileimg_url     String?
+  DOB                DateTime?
+  phone_number       Int?
+  about              String?
+  first_name         String?
+  last_name          String?
+  full_name          String?
+  address            String?
+}

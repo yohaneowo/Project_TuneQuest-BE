@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 from typing import Annotated
 from jose import JWTError, jwt
 
+
 SECRET_KEY = 'e1464563b1abb0b5741028bd682872bd9d4a4717bb7118e6d9c9d29296d64e29'
 # 加密算法
 ALGORITHM = "HS256"

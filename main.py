@@ -1,23 +1,30 @@
-    import os
+import os
 from fastapi import FastAPI
 from dotenv_vault import load_dotenv
 import uvicorn
 
 from typing import Annotated
-
 from fastapi import Depends, FastAPI
-
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from prisma import Prisma
 
 load_dotenv()
 app = FastAPI()
 fastapi_port = os.getenv("FASTAPI_PORT")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
-@app.get("/")
-async def root(token: Annotated[str, Depends(oauth2_scheme)]):
-    # return {"message": "Hello World"}
-    return {"token": token}
+# @app.get("/")
+# async def root(token: Annotated[str, Depends(oauth2_scheme)]):
+#     # return {"message": "Hello World"}
+#     return {"token": token}
 
+@app.get("/")
+def list_post():
+    db = Prisma()
+
+    db.connect()
+    posts = db.user.find_many()
+    db.disconnect()
+    return posts
 
 @app.get("/hello")
 async def say_hello(name: str):

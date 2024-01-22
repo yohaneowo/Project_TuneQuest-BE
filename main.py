@@ -1,17 +1,17 @@
 import os
-from fastapi import FastAPI
 from dotenv_vault import load_dotenv
 import uvicorn
 
-from typing import Annotated
-from fastapi import Depends, FastAPI
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from fastapi import FastAPI
+from fastapi.security import OAuth2PasswordBearer
 from prisma import Prisma
+from src.graphql.schema import graphql_app
 
 load_dotenv()
 app = FastAPI()
 fastapi_port = os.getenv("FASTAPI_PORT")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+app.include_router(graphql_app, prefix="/graphql")
 # @app.get("/")
 # async def root(token: Annotated[str, Depends(oauth2_scheme)]):
 #     # return {"message": "Hello World"}

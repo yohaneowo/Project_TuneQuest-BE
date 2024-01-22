@@ -21,7 +21,7 @@ model Post {
 
 model User {
   user_id            Int       @id @default(autoincrement())
-  username           String
+  username           String     @unique
   display_name       String?
   gender             String?
   profilebanner_url  String?

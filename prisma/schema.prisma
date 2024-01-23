@@ -25,13 +25,13 @@ model User {
   display_name       String?
   gender             String?
   profilebanner_url  String?
-  created_at         DateTime
-  updated_at         DateTime
+  created_at         String
+  updated_at         String
   email              String?
   region             String?
   hashed_password    String
   profileimg_url     String?
-  DOB                DateTime?
+  DOB                String?
   phone_number       Int?
   about              String?
   first_name         String?

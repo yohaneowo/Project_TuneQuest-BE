@@ -1,7 +1,7 @@
 import strawberry
 from strawberry.fastapi import GraphQLRouter
 from src.graphql.query import Query
-from src.graphql.input import Mutation
+from src.graphql.mutation import Mutation
 schema = strawberry.Schema(query=Query, mutation=Mutation)
 graphql_app = GraphQLRouter(schema)
 

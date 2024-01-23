@@ -6,9 +6,31 @@ from fastapi import FastAPI
 from fastapi.security import OAuth2PasswordBearer
 from prisma import Prisma
 from src.graphql.schema import graphql_app
+from loguru import logger
+
+logger.add(
+    sink=os.path.join('./logs', 'service.log'),
+    rotation='500 MB',                  # 日志文件最大限制500mb
+    retention='30 days',                # 最长保留30天
+    format="{time}|{level}|{message}",  # 日志显示格式
+    compression="zip",                  # 压缩形式保存
+    encoding='utf-8',                   # 编码
+    level='DEBUG',                      # 日志级别
+    enqueue=True,                       # 默认是线程安全的，enqueue=True使得多进程安全
+)
+
+# logger.debug("详细调试信息")
+# logger.info("普通信息")
+# logger.success("成功信息")
+# logger.warning("警告信息")
+# logger.error("错误信息")
+# logger.trace("异常信息")
+# logger.critical("严重错误信息")
 
 load_dotenv()
 app = FastAPI()
+logger.success("TuneQuest Service Started")
+
 fastapi_port = os.getenv("FASTAPI_PORT")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 app.include_router(graphql_app, prefix="/graphql")

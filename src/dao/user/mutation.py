@@ -1,13 +1,14 @@
 from prisma import Prisma
 import strawberry
 from src.model.User import UserInput
+from src.middlewares.user import isUserExists
+from src.dao.user.error import *
 
-@strawberry.type
-class response:
-    message: str
-    status: str
 
-def create_user(input: UserInput) -> UserInput | None:
+def create_user(input: UserInput) -> Response | None:
+    if isUserExists(input.username):
+        raise Exception("User Already Exists")
+
     db = Prisma()
     db.connect()
     user = db.user.create(
@@ -35,6 +36,7 @@ def create_user(input: UserInput) -> UserInput | None:
     return user
     # return response(message="User Created", status="200")
 
+
 @strawberry.mutation
 def delete_user(username: str) -> UserInput:
     db = Prisma()
@@ -42,4 +44,3 @@ def delete_user(username: str) -> UserInput:
     user = db.user.delete(where={'username': username})
     db.disconnect()
     return user
-

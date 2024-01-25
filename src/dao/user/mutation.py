@@ -1,16 +1,18 @@
 from prisma import Prisma
 import strawberry
 from src.model.User import UserInput
-from src.middlewares.user import isUserExists
+from src.middlewares.user import isUserExists , isEmailExists
 from src.dao.user.error import *
-
+from src.middlewares.register import hash_password
 
 def create_user(input: UserInput) -> Response | None:
     if isUserExists(input.username):
         raise Exception("User Already Exists")
-
+    if isEmailExists(input.email):
+        raise Exception("Email Already Exists")
     db = Prisma()
     db.connect()
+    hashed_password = hash_password(input.password)
     user = db.user.create(
         {
             'username': input.username,
@@ -20,7 +22,7 @@ def create_user(input: UserInput) -> Response | None:
             'updated_at': input.updated_at,
             'email': input.email,
             'region': input.region,
-            'hashed_password': input.password,
+            'hashed_password': hashed_password,
             'profileimg_url': input.profileimg_url,
             'profilebanner_url': input.profilebanner_url,
             'DOB': input.DOB,

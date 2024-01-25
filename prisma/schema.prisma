@@ -27,7 +27,7 @@ model User {
   profilebanner_url  String?
   created_at         String
   updated_at         String
-  email              String?
+  email              String     @unique
   region             String?
   hashed_password    String
   profileimg_url     String?

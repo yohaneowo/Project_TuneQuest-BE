@@ -30,7 +30,7 @@ class UserInput:
     gender: Optional[str] = None
     created_at: Optional[str]
     updated_at: Optional[str]
-    email: Optional[str] = None
+    email: str
     region: Optional[str] = None
     password: str
     profileimg_url: Optional[str] = None

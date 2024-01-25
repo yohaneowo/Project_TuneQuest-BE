@@ -14,3 +14,10 @@ def get_users() -> list[User] | None:
     users = db.user.find_many()
     db.disconnect()
     return users
+
+def get_email(email: str) -> User | None:
+    db = Prisma()
+    db.connect()
+    user = db.user.find_unique(where={'email': email})
+    db.disconnect()
+    return user

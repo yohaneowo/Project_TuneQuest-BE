@@ -4,9 +4,14 @@ from src.model.User import UserInput , User
 def get_user(username: str) -> User | None:
     db = Prisma()
     db.connect()
-    user = db.user.find_unique(where={'username': username})
-    db.disconnect()
-    return user
+    try :
+        user = db.user.find_unique(where={'username': username})
+        return user
+    except Exception as e:
+        print(e)
+        return None
+    finally:
+        db.disconnect()
 
 def get_users() -> list[User] | None:
     db = Prisma()
@@ -18,6 +23,11 @@ def get_users() -> list[User] | None:
 def get_email(email: str) -> User | None:
     db = Prisma()
     db.connect()
-    user = db.user.find_unique(where={'email': email})
-    db.disconnect()
-    return user
+    try :
+        user = db.user.find_unique(where={'email': email})
+        return user
+    except Exception as e:
+        print(e)
+        return None
+    finally:
+        db.disconnect()

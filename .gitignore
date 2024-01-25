@@ -5,3 +5,4 @@
 !.env.vault
 .temp_outputFolder/
 .idea/
+__pycache__/

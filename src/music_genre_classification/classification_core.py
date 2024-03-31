@@ -5,12 +5,10 @@ import xgboost as xgb
 import librosa
 import joblib
 from fastapi import FastAPI, File, UploadFile,APIRouter
-print(os.getcwd())
-print("test")
 
 router = APIRouter(
     prefix='/music_genre_classification',
-    tags=['auth']
+    tags=['music_genre_classification']
 )
 
 model = xgb.XGBClassifier()

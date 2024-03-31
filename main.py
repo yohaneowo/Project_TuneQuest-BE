@@ -9,6 +9,8 @@ from src.graphql.schema import graphql_app
 from loguru import logger
 from src.routes import auth
 from src.routes.auth import oauth2_bearer
+from src.music_genre_classification import classification_core
+
 logger.add(
     sink=os.path.join('./logs', 'service.log'),
     rotation='500 MB',                  # 日志文件最大限制500mb
@@ -36,7 +38,7 @@ fastapi_port = os.getenv("FASTAPI_PORT")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 app.include_router(graphql_app, prefix="/graphql")
 app.include_router(auth.router)
-
+app.include_router(classification_core.router)
 
 # @app.get("/")
 # async def root(token: Annotated[str, Depends(oauth2_scheme)]):

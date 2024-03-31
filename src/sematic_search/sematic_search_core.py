@@ -89,5 +89,3 @@ async def delete_item(id: str):
         return deleted_item
     raise HTTPException(status_code=404, detail="Item not found")
 
-if __name__ == "__main__":
-    uvicorn.run(router, log_level="info")

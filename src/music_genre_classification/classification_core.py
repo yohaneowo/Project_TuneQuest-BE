@@ -17,11 +17,11 @@ scaler_filepath = "./src/music_genre_classification/scaler.save"
 sc = joblib.load(scaler_filepath)
 genre_map = {0: 'Blues',
              1: 'Classical',
-             2: 'County',
+             2: 'Country',
              3: 'Disco',
              4: 'Hip-hop',
              5: 'jazz',
-             6: 'Metel',
+             6: 'Metal',
              7: 'Pop',
              8: 'Reggae',
              9: 'Rock'}

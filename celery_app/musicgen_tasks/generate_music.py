@@ -1,11 +1,11 @@
-from celery_app.celery_app_1 import celery_app_1
+from celery_app.celery_app import celery_app
 from celery_app.celery_app_2 import celery_app_2
 from ai_generation_core.musicgen.musicgen import Musicgen
 
 
 #
-@celery_app_1.task()
-def generate_music_celery_1():
+@celery_app.task()
+def generate_music_celery():
     # for local model
     print("start")
     x = Musicgen()

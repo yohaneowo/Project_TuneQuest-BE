@@ -1,3 +1,3 @@
 import celery_app.musicgen_tasks.generate_music
 
-generate_music = generate_music.generate_music
+generate_music = generate_music.generate_music_celery

@@ -11,6 +11,7 @@ from src.routes import auth
 from src.routes.auth import oauth2_bearer
 from src.music_genre_classification import classification_core
 from src.sematic_search import sematic_search_core
+from src.prompt_assistant import prompt_assistant_core
 logger.add(
     sink=os.path.join('./logs', 'service.log'),
     rotation='500 MB',                  # 日志文件最大限制500mb
@@ -40,6 +41,7 @@ app.include_router(graphql_app, prefix="/graphql")
 app.include_router(auth.router)
 app.include_router(classification_core.router)
 app.include_router(sematic_search_core.router)
+app.include_router(prompt_assistant_core.router)
 # @app.get("/")
 # async def root(token: Annotated[str, Depends(oauth2_scheme)]):
 #     # return {"message": "Hello World"}

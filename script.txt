@@ -1,0 +1,5 @@
+
+celery -A celery_app.celery_app:celery_app worker --loglevel=info --concurrency=4 -P threads
+python main.py
+celery -A celery_app.celery_app:celery_app flower --loglevel=info --concurrency=4 -P threads
+

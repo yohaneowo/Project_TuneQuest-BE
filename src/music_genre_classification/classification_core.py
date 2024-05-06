@@ -20,7 +20,7 @@ genre_map = {0: 'Blues',
              2: 'Country',
              3: 'Disco',
              4: 'Hip-hop',
-             5: 'jazz',
+             5: 'Jazz',
              6: 'Metal',
              7: 'Pop',
              8: 'Reggae',
@@ -93,9 +93,26 @@ def ML_model(f):
 
 
 
-@router.post("/predict")
-async def predict_genre(file: UploadFile = File(...)):
-    contents = await file.read()
+# @router.post("/predict")
+# def predict_genre(file: UploadFile = File(...)):
+#     contents = file.read()
+#     temp_file_path = "temp_file"
+#     with open(temp_file_path, "wb") as temp_file:
+#         temp_file.write(contents)
+#
+#     m_df = getdataf(temp_file_path)
+#     m_df = sc.transform(m_df)
+#     output = model.predict(m_df)
+#     predict = genre_map[output[0]]
+#
+#     os.remove(temp_file_path)
+#     return {"genre": predict}
+#
+
+
+def predict_genre(file_path: str):
+    with open(file_path, "rb") as file:
+        contents = file.read()
     temp_file_path = "temp_file"
     with open(temp_file_path, "wb") as temp_file:
         temp_file.write(contents)

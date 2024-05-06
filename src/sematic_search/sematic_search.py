@@ -30,7 +30,8 @@ def keyword_search(query, limit = 10):
           "prompt": 1,
           "user_id": 1,
           "created_at": 1,
-          "store_path": 1
+          "store_path": 1,
+          "file_name": 1,
         }
       }
   ])

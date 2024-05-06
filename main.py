@@ -8,10 +8,16 @@ from prisma import Prisma
 from src.graphql.schema import graphql_app
 from loguru import logger
 from src.routes import auth
+from src.routes import musicgen
 from src.routes.auth import oauth2_bearer
 from src.music_genre_classification import classification_core
 from src.sematic_search import sematic_search_core
 from src.prompt_assistant import prompt_assistant_core
+from fastapi.middleware.cors import CORSMiddleware
+from file_watcher import start_watching
+import threading
+from contextlib import asynccontextmanager
+import asyncio
 logger.add(
     sink=os.path.join('./logs', 'service.log'),
     rotation='500 MB',                  # 日志文件最大限制500mb
@@ -32,13 +38,41 @@ logger.add(
 # logger.critical("严重错误信息")
 
 load_dotenv()
-app = FastAPI()
-logger.success("TuneQuest Service Started")
 
+
+
+WATCH_PATH = "./music_storage"
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """ background task starts at statrup """
+    asyncio.create_task(startup_event())
+    yield
+
+MONGO_URI = os.getenv("MONGO_URL")
+DATABASE_NAME = "genMusic"
+COLLECTION_NAME = "embedded_music"
+async def startup_event():
+    # 使用线程启动文件监控，避免阻塞主线程
+    watcher_thread = threading.Thread(target=start_watching, args=(WATCH_PATH, MONGO_URI, DATABASE_NAME, COLLECTION_NAME))
+    watcher_thread.start()
+    print("File watcher started.")
+
+app = FastAPI(lifespan=lifespan)
+logger.success("TuneQuest Service Started")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:9000"],  # 允许的来源列表
+    allow_credentials=True,
+    allow_methods=["*"],  # 允许所有方法
+    allow_headers=["*"],  # 允许所有头部
+)
 fastapi_port = os.getenv("FASTAPI_PORT")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 app.include_router(graphql_app, prefix="/graphql")
 app.include_router(auth.router)
+app.include_router(musicgen.router)
+
 app.include_router(classification_core.router)
 app.include_router(sematic_search_core.router)
 app.include_router(prompt_assistant_core.router)

@@ -10,3 +10,6 @@ wav = model.generate(descriptions)  # generates 3 samples.
 for idx, one_wav in enumerate(wav):
     # Will save under {idx}.wav, with loudness normalization at -14 db LUFS.
     audio_write(f'{idx}', one_wav.cpu(), model.sample_rate, strategy="loudness", loudness_compressor=True)
+
+
+# 这个文件是可以直接运行生成音效

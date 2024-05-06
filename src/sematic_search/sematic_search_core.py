@@ -13,8 +13,8 @@ from enum import unique, Enum
 import uuid
 import aiofiles
 import aiofiles.os
-
-
+from asgiref.sync import async_to_sync
+import asyncio
 
 router = APIRouter(
     prefix='/sematic_search',
@@ -35,7 +35,7 @@ collection = database["embedded_music"]
 class GenreEnum(str, Enum):
     blues = 'Blues'
     classical = 'Classical'
-    country = 'County'
+    country = 'Country'
     disco = 'Disco'
     hiphop = 'Hip-hop'
     jazz = 'Jazz'
@@ -49,9 +49,10 @@ class GeneratedMusic(BaseModel):
     prompt: str = Field(examples=["Late night jazz with a melancholic piano and a double bass groove"])
     user_id: int = Field(examples=[123])
     created_at: datetime
-
+    file_name: str = Field(examples=["tmpte4m9jx6.wav"])
     # 兼容windows(.\\docs\\file.txt)或是unix(./docs/file.txt)的路徑寫法
     store_path: FilePath = Field(examples=["./sample/tmpte4m9jx6.wav"])
+    duration: int = Field(examples=[120])
     embedded_prompt: Optional[List[float]] = Field(default=None)
     embedded_audio: Optional[List[float]] = Field(default=None)
 
@@ -63,7 +64,6 @@ class GeneratedMusic(BaseModel):
         raise ValueError(f'Genre must be one of {list(GenreEnum)} or null')
 
 
-@router.post("/items/", response_model=GeneratedMusic)
 async def create_item(item: GeneratedMusic):
     item.embedded_prompt = await hf_embedding(item.prompt)
     item.created_at = datetime.now(timezone.utc)
@@ -74,8 +74,22 @@ async def create_item(item: GeneratedMusic):
 
     # 不論輸入windows(.\\docs\\file.txt)或是unix(./docs/file.txt)的路徑寫法，最後都會轉成unix的寫法儲存
     item.store_path = str(path.as_posix())
-    await collection.insert_one(item.model_dump())
+    collection.insert_one(item.dict())
     return item
+
+# @router.post("/items/", response_model=GeneratedMusic)
+# async def create_item(item: GeneratedMusic):
+#     item.embedded_prompt = await hf_embedding(item.prompt)
+#     item.created_at = datetime.now(timezone.utc)
+#
+#     # 兼容windows(.\\docs\\file.txt)或是unix(./docs/file.txt)的路徑寫法
+#     path = Path(item.store_path)
+#     item.embedded_audio = audio_embedding(str(path))
+#
+#     # 不論輸入windows(.\\docs\\file.txt)或是unix(./docs/file.txt)的路徑寫法，最後都會轉成unix的寫法儲存
+#     item.store_path = str(path.as_posix())
+#     collection.insert_one(item.dict())
+#     return item
 
 
 @router.get("/items/id/{id}", response_model=GeneratedMusic)
@@ -105,7 +119,7 @@ def semantic_search_by_prompt(prompt: str, limit: Optional[int] = 10):
 @router.put("/items/{id}", response_model=GeneratedMusic)
 async def update_item(id: str, item: GeneratedMusic):
     updated_item = await collection.find_one_and_update(
-        {"_id": ObjectId(id)}, {"$set": item.model_dump()}
+        {"_id": ObjectId(id)}, {"$set": item.dict()}
     )
     if updated_item:
         return item
